@@ -107,7 +107,7 @@ export default {
 .web__msg-input {
   display: block;
   width: 100%;
-  height: 160px;
+  height: 90px;
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
@@ -121,6 +121,7 @@ export default {
   -webkit-appearance: none;
 }
 .web__msg-menu {
+  padding: 11px 0;
   text-align: right;
 }
 .web__msg-submit {
