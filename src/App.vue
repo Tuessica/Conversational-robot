@@ -84,9 +84,9 @@ export default {
   },
   methods: {
     bindLoadHistory () {
-      const history = new Array(3).fill().map((i, j) => {
+      const history = new Array(3).fill().map((j, i) => {
         return {
-          "date": "2020/09/20 23:19:21",
+          "date": `2020/09/20 23:19:2${i}`,
           "text": { "text": j + new Date() },
           "mine": false,
           "name": "CNN",

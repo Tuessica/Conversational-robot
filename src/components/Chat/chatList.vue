@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" :style="boxSize" ref="scroller">
-    <div v-if="historyLoding" @click="$emit('loadHistory')">{{historyConfig.tip}}</div>
+    <div v-if="historyLoding" @click="$emit(`loadHistory`)">{{historyConfig.tip}}</div>
     <div class="scroller">
       <div class="web__main" ref="main">
         <div
