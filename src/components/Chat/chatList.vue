@@ -6,7 +6,7 @@
         <div
           class="web__main-item"
           v-for="(item) in list"
-          :key="JSON.stringify(item)"
+          :key="JSON.stringify(item.date)"
           :class="{'web__main-item--mine':item.mine}"
         >
           <div class="web__main-user">

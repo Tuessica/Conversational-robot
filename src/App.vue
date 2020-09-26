@@ -20,6 +20,8 @@
 
 <script>
 import itemTalk from '@/components/Chat/itemTalk'
+import moment from 'moment'
+
 export default {
   components: { itemTalk },
   data () {
@@ -84,7 +86,7 @@ export default {
     bindLoadHistory () {
       const history = new Array(3).fill().map((i, j) => {
         return {
-          "date": "2020/09/20 23:19",
+          "date": "2020/09/20 23:19:21",
           "text": { "text": j + new Date() },
           "mine": false,
           "name": "CNN",
@@ -105,7 +107,7 @@ export default {
       const msg = this.inputMsg
       if (!msg) return;
       const msgObj = {
-        "date": "2020/09/20 23:19",
+        "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
         "text": { "text": msg },
         "mine": true,
         "name": "User",
@@ -129,28 +131,28 @@ export default {
   mounted () {
     this.list = [
       {
-        "date": "2020/09/12 12:19",
+        "date": "2020/09/12 12:19:12",
         "text": { "text": "Ok，got it. It's been a big good news day. Here are your top story." },
         "mine": false,
         "name": "CNN",
         "img": "/image/CNN.png"
       },
       {
-        "date": "2020/09/12 12:20",
+        "date": "2020/09/12 12:20:11",
         "text": { "text": "<audio data-src='https://www.w3school.com.cn/i/horse.mp3'/>" },
         "mine": false,
         "name": "CNN",
         "img": "/image/CNN.png"
       },
       {
-        "date": "2020/09/12 13:19",
+        "date": "2020/09/12 13:19:45",
         "text": { "text": "<img data-src='/image/planet.jpg'/>  Ok，got it. It's been a big good news day. Here are your top story."  },
         "mine": false,
         "name": "CNN",
         "img": "/image/CNN.png"
       },
       {
-        "date": "2020/09/12 13:39",
+        "date": "2020/09/12 13:39:12",
         "text": { "text": "hello" },
         "mine": true,
         "name": "User",
