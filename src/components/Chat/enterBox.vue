@@ -114,7 +114,9 @@ export default {
   resize: none;
   outline: 0;
   background-color: #fff;
-  border: 0;
+  padding: 8px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
   word-break: break-all;
   font-size: 13px;
   line-height: 17px;
