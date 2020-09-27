@@ -117,10 +117,33 @@ export default {
       this.list.push(msgObj)
 
       // 向后端发送输入信息
-      postMessage({
-        name: msg
-      })
+      const data = new FormData()
+      data.set('question', msg)
+      postMessage(data)
       .then(res => {
+        if (res.data.type === 1) {
+          const msgObj = {
+            "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
+            "text": { "text": res.data.text },
+            "mine": false,
+            "name": "CNN",
+            "img": "image/CNN.png"
+          }
+          this.list.push(msgObj)
+        } else {
+          let htmlStr = ''
+          res.data.text.forEach(item => {
+            htmlStr += `<a href='${item.url}' target="_blank">${item.title}</a><br/>`
+          });
+          const msgObj = {
+            "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
+            "text": { "text": htmlStr },
+            "mine": false,
+            "name": "CNN",
+            "img": "image/CNN.png"
+          }
+          this.list.push(msgObj)
+        }
         console.log(res);
       })
       .catch((err) => {
@@ -142,34 +165,34 @@ export default {
   },
   mounted () {
     this.list = [
-      {
-        "date": "2020/09/12 12:19:12",
-        "text": { "text": "Ok，got it. It's been a big good news day. Here are your top story." },
-        "mine": false,
-        "name": "CNN",
-        "img": "/image/CNN.png"
-      },
-      {
-        "date": "2020/09/12 12:20:11",
-        "text": { "text": "<audio data-src='https://www.w3school.com.cn/i/horse.mp3'/>" },
-        "mine": false,
-        "name": "CNN",
-        "img": "/image/CNN.png"
-      },
-      {
-        "date": "2020/09/12 13:19:45",
-        "text": { "text": "<img data-src='/image/planet.jpg'/>  Ok，got it. It's been a big good news day. Here are your top story."  },
-        "mine": false,
-        "name": "CNN",
-        "img": "/image/CNN.png"
-      },
-      {
-        "date": "2020/09/12 13:39:12",
-        "text": { "text": "hello" },
-        "mine": true,
-        "name": "User",
-        "img": "/image/user.png"
-      },
+      // {
+      //   "date": "2020/09/12 12:19:12",
+      //   "text": { "text": "Ok，got it. It's been a big good news day. Here are your top story." },
+      //   "mine": false,
+      //   "name": "CNN",
+      //   "img": "/image/CNN.png"
+      // },
+      // {
+      //   "date": "2020/09/12 12:20:11",
+      //   "text": { "text": "<audio data-src='https://www.w3school.com.cn/i/horse.mp3'/>" },
+      //   "mine": false,
+      //   "name": "CNN",
+      //   "img": "/image/CNN.png"
+      // },
+      // {
+      //   "date": "2020/09/12 13:19:45",
+      //   "text": { "text": "<img data-src='/image/planet.jpg'/>  Ok，got it. It's been a big good news day. Here are your top story."  },
+      //   "mine": false,
+      //   "name": "CNN",
+      //   "img": "/image/CNN.png"
+      // },
+      // {
+      //   "date": "2020/09/12 13:39:12",
+      //   "text": { "text": "hello" },
+      //   "mine": true,
+      //   "name": "User",
+      //   "img": "/image/user.png"
+      // },
     ]
   }
 }
