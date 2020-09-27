@@ -25,6 +25,7 @@
     "build:lib": "webpack ---mode production  --display-error-details --config webpack.config.js"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "element-ui": "^2.13.1",
     "iscroll": "^5.2.0",
     "koa": "^2.0.0",

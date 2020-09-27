@@ -21,6 +21,7 @@
 <script>
 import itemTalk from '@/components/Chat/itemTalk'
 import moment from 'moment'
+import {postMessage} from '@/api/chat'
 
 export default {
   components: { itemTalk },
@@ -114,6 +115,17 @@ export default {
         "img": "image/user.png"
       }
       this.list.push(msgObj)
+
+      // 向后端发送输入信息
+      postMessage({
+        name: msg
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     },
     toolEvent (type, plyload) {
       console.log('tools', type, plyload)
