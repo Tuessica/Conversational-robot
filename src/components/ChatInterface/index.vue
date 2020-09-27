@@ -15,7 +15,7 @@
           :width="chatWidth"
           :height="chatHeight"
           :config="chatConfig"
-          @clickTalk="$emit('clickTalk',$event)"
+          @clickTalk="$emit(`clickTalk`,$event)"
         >
           <slot name="tools" slot="tools" />
         </JwChat>

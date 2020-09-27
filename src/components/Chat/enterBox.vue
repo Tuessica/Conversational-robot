@@ -107,20 +107,23 @@ export default {
 .web__msg-input {
   display: block;
   width: 100%;
-  height: 160px;
+  height: 90px;
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
   resize: none;
   outline: 0;
   background-color: #fff;
-  border: 0;
+  padding: 8px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
   word-break: break-all;
   font-size: 13px;
   line-height: 17px;
   -webkit-appearance: none;
 }
 .web__msg-menu {
+  padding: 11px 0;
   text-align: right;
 }
 .web__msg-submit {

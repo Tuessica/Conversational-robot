@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper" :style="boxSize" ref="scroller">
-    <div v-if="historyLoding" @click="$emit('loadHistory')">{{historyConfig.tip}}</div>
+    <div v-if="historyLoding" @click="$emit(`loadHistory`)">{{historyConfig.tip}}</div>
     <div class="scroller">
       <div class="web__main" ref="main">
         <div
           class="web__main-item"
           v-for="(item) in list"
-          :key="JSON.stringify(item)"
+          :key="JSON.stringify(item.date)"
           :class="{'web__main-item--mine':item.mine}"
         >
           <div class="web__main-user">
@@ -157,7 +157,7 @@ export default {
         this.scroll.refresh()
         setTimeout(() => {
           this.scroll.scrollTo(0, this.scroll.maxScrollY, 200)
-        }, 800);
+        }, 300);
       }
     },
     bindClick (type, data) {
@@ -236,7 +236,7 @@ export default {
       setTimeout(() => {
         this.scroll && this.scroll.refresh()
         this.scrollRefresh()
-      }, 1000);
+      }, 300);
       return
     },
     saveTitle () {
@@ -261,7 +261,7 @@ export default {
         that.titleTimer = setTimeout(() => {
           that.resetTitle(title + that.beforeTitle)
           change()
-        }, 1000);
+        }, 300);
       }
     },
     showBrowser () {
@@ -349,7 +349,7 @@ export default {
 .wrapper {
   position: relative;
   width: 525px;
-  height: 382px;
+  // height: 382px;
   overflow: hidden;
 
   /* Prevent native touch events on Windows */

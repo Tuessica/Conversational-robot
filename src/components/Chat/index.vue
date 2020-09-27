@@ -141,12 +141,12 @@ export default {
   overflow: hidden;
 }
 .taleBox {
-  height: calc(100% - 200px);
+  // height: calc(100% - 200px);
   min-height: 100px;
   overflow: hidden;
 }
 .toolBox {
-  height: 140px;
+  // height: 140px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
 </style>

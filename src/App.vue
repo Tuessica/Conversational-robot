@@ -20,6 +20,9 @@
 
 <script>
 import itemTalk from '@/components/Chat/itemTalk'
+import moment from 'moment'
+import {postMessage} from '@/api/chat'
+
 export default {
   components: { itemTalk },
   data () {
@@ -82,9 +85,9 @@ export default {
   },
   methods: {
     bindLoadHistory () {
-      const history = new Array(3).fill().map((i, j) => {
+      const history = new Array(3).fill().map((j, i) => {
         return {
-          "date": "2020/09/20 23:19",
+          "date": `2020/09/20 23:19:2${i}`,
           "text": { "text": j + new Date() },
           "mine": false,
           "name": "CNN",
@@ -105,13 +108,24 @@ export default {
       const msg = this.inputMsg
       if (!msg) return;
       const msgObj = {
-        "date": "2020/09/20 23:19",
+        "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
         "text": { "text": msg },
         "mine": true,
         "name": "User",
         "img": "image/user.png"
       }
       this.list.push(msgObj)
+
+      // 向后端发送输入信息
+      postMessage({
+        name: msg
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     },
     toolEvent (type, plyload) {
       console.log('tools', type, plyload)
@@ -129,28 +143,28 @@ export default {
   mounted () {
     this.list = [
       {
-        "date": "2020/09/12 12:19",
+        "date": "2020/09/12 12:19:12",
         "text": { "text": "Ok，got it. It's been a big good news day. Here are your top story." },
         "mine": false,
         "name": "CNN",
         "img": "/image/CNN.png"
       },
       {
-        "date": "2020/09/12 12:20",
+        "date": "2020/09/12 12:20:11",
         "text": { "text": "<audio data-src='https://www.w3school.com.cn/i/horse.mp3'/>" },
         "mine": false,
         "name": "CNN",
         "img": "/image/CNN.png"
       },
       {
-        "date": "2020/09/12 13:19",
+        "date": "2020/09/12 13:19:45",
         "text": { "text": "<img data-src='/image/planet.jpg'/>  Ok，got it. It's been a big good news day. Here are your top story."  },
         "mine": false,
         "name": "CNN",
         "img": "/image/CNN.png"
       },
       {
-        "date": "2020/09/12 13:39",
+        "date": "2020/09/12 13:39:12",
         "text": { "text": "hello" },
         "mine": true,
         "name": "User",
