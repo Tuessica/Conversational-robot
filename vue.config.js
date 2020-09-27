@@ -39,6 +39,13 @@ module.exports = {
         pathRewrite: {
           '^/manager-api': '/api'
         }
+      },
+      '/robot-api': {
+        target: 'http://40d2d71990e5.ngrok.io',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/robot-api': '/'
+        }
       }
     },
     // after: require('./mock/mock-server.js')

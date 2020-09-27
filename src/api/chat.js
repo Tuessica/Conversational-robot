@@ -1,7 +1,8 @@
 import request from './request'
 
 export const postMessage = params => request({
-  url: `/apples`,
+  baseURL: '/robot-api',
+  url: `/message/`,
   method: 'post',
   data: params
 })
