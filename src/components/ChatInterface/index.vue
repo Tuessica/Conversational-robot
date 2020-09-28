@@ -36,7 +36,7 @@ export default {
       default: () => ({
         img: 'image/cover.png',
         name: 'JwChat',
-        dept: '最简单、最便捷',
+        // dept: '最简单、最便捷',
         callback: () => { }
       })
     },

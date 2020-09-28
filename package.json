@@ -68,5 +68,12 @@
     "lib",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tuessica/Conversational-robot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tuessica/Conversational-robot/issues"
+  }
 }

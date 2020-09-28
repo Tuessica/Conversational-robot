@@ -46,6 +46,10 @@ module.exports = {
         pathRewrite: {
           '^/robot-api': '/'
         }
+      },
+      '/uploads': {
+        target: 'https://c-ssl.duitang.com',
+        changeOrigin: true
       }
     },
     // after: require('./mock/mock-server.js')

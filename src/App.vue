@@ -35,47 +35,11 @@ export default {
         // showEmoji: false,
         callback: this.toolEvent
       },
-      rightConfig: {
-        listTip: '当前在线',
-        // notice: '【公告】这是一款高度自由的聊天组件，基于AVue、Vue、Element-ui开发。点个赞再走吧 ',
-        list: [
-          {
-            name: 'JwChat',
-            "img": "image/three.jpeg"
-          },
-          {
-            name: 'JwChat',
-            "img": "image/three.jpeg"
-          },
-          {
-            name: '留恋人间不羡仙',
-            "img": "image/one.jpeg"
-          },
-          {
-            name: '只盼流星不盼雨',
-            "img": "image/two.jpeg"
-          }
-        ]
-      },
-      quickConfig: {
-        nav: ['快捷回复', '超级回复'],
-        showAdd: true,
-        maxlength: 200,
-        showHeader: true,
-        showDeleteBtn: true,
-      },
-      talk: [
-        '快捷回复1',
-        '快捷回复2',
-        '快捷回复3',
-        '快捷回复4',
-        '快捷回复5',
-        '快捷回复6',
-      ],
+      
       config: {//config是头部属性
-        img: '/image/CNN.png',
-        name: 'CNN',
-        dept: 'Robot for Facebook',
+        img: '/image/title.jpg',
+        name: '新闻聊天机器人',
+        // dept: 'Robot for Facebook',
         historyConfig:{
           tip: '加载更多',
           callback: this.bindLoadHistory,
@@ -90,8 +54,8 @@ export default {
           "date": `2020/09/20 23:19:2${i}`,
           "text": { "text": j + new Date() },
           "mine": false,
-          "name": "CNN",
-          "img": "image/CNN.png"
+          "name": "newsbot",
+          "img": "image/title.jpg"
         }
       })
       let list = history.concat(this.list)
@@ -126,21 +90,22 @@ export default {
             "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
             "text": { "text": res.data.text },
             "mine": false,
-            "name": "CNN",
-            "img": "image/CNN.png"
+            "name": "newsbot",
+            "img": "image/title.jpg"
           }
           this.list.push(msgObj)
         } else {
           let htmlStr = ''
           res.data.text.forEach(item => {
-            htmlStr += `<a href='${item.url}' target="_blank">${item.title}</a><br/>`
+            htmlStr += `<div><a href='${item.url}' target="_blank">${item.title} </a> </div>`
           });
+          htmlStr += `<img src="${res.data.text[0].img_path}"/>`
           const msgObj = {
             "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
             "text": { "text": htmlStr },
             "mine": false,
-            "name": "CNN",
-            "img": "image/CNN.png"
+            "name": "newsbot",
+            "img": "image/title.jpg"
           }
           this.list.push(msgObj)
         }
