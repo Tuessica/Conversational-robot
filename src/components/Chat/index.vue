@@ -144,6 +144,7 @@ export default {
   // height: calc(100% - 200px);
   min-height: 100px;
   overflow: hidden;
+  
 }
 .toolBox {
   // height: 140px;

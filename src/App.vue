@@ -97,9 +97,9 @@ export default {
         } else {
           let htmlStr = ''
           res.data.text.forEach(item => {
-            htmlStr += `<div><a href='${item.url}' target="_blank">${item.title} </a> </div>`
+            htmlStr += `<a href='${item.url}' target="_blank">${item.title}</a> </br><img src='${item.img_path}'/><br>`
           });
-          htmlStr += `<img src="${res.data.text[0].img_path}"/>`
+          // htmlStr += `<img src="${res.data.text[0].img_path}"/>`
           const msgObj = {
             "date": moment(Date.now()).format('yyyy/MM/DD HH:mm:ss'),
             "text": { "text": htmlStr },
