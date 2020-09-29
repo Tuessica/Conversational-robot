@@ -41,7 +41,7 @@ module.exports = {
         }
       },
       '/robot-api': {
-        target: 'http://40d2d71990e5.ngrok.io',
+        target: 'https://29162f035b57.ngrok.io',
         changeOrigin: true,
         pathRewrite: {
           '^/robot-api': '/'

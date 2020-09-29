@@ -8,7 +8,7 @@
       v-model="inputMsg"
       :toolConfig="tool"
       :showRightBox='false'
-      scrollType="norell"
+      scrollType="scroll"
       @clickTalk="talkEvent"
     >
       <!-- <JwChat-rightbox class="rightSlot" :config="rightConfig" @click="rightClick" /> -->
@@ -97,7 +97,7 @@ export default {
         } else {
           let htmlStr = ''
           res.data.text.forEach(item => {
-            htmlStr += `<a href='${item.url}' target="_blank">${item.title}</a> </br><img src='${item.img_path}'/><br>`
+            htmlStr += `<a href='${item.url}' target="_blank">${item.title}</a> </br><img src='${item.img_path}' width="300" height="200"/><br>`
           });
           // htmlStr += `<img src="${res.data.text[0].img_path}"/>`
           const msgObj = {
